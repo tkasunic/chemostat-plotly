@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <title>Bioprocess</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <section id="navbar" class="darker-background">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg">
+                <a class="nav-item navbar-item" href="">Try it</a>
+                <a class="nav-item navbar-item" href="">Me two!</a>
+                <a class="nav-item navbar-item" href="">Try it</a>
+                <a class="nav-item navbar-item" href="">Me two!</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Graph canvases in tabs -->
+    <section id="tab-nav" class="lighter-background">
+        <div class="container-fluid">
+            <h1>Chemostat Simulation</h1>
+        </div>
+
+
+        <div id="canvas-tabs" class="container-fluid">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chemostat</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Help</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row container-fluid">
+                        <div class="col col-lg-3 col-md-6 input-div">
+                            <label for="mu-max-input">&#956 max</label>
+                            <input id="mu-max-input" type="number" name="mu-max-input" placeholder="1/h">
+                        </div>
+
+                        <div class="col col-lg-3 col-md-6 input-div">
+                            <label for="const-saturation-input">Saturation constant</label>
+                            <input id="const-saturation-input" type="number" name="const-saturation-input" placeholder="kg/m^3">
+                        </div>
+
+                        <div class="col col-lg-3 col-md-6 input-div">
+                            <label for="subst-inflow-input">Substrate inflow</label>
+                            <input id="subst-inflow-input" type="number" name="subst-inflow-input" placeholder="kg/m^3">
+                        </div>
+
+                        <div class="col col-lg-3 col-md-6 input-div">
+                            <label for="biomass-yield-input">Biomass yield</label>
+                            <input id="biomass-yield-input" type="number" name="biomass-yield-input" placeholder="kg/kg">
+                        </div>
+
+                    </div>
+                    <div id="chemostat-plot-div" class="plot-div"></div>
+                    <div class="row">
+                        <div class="col col-md-4">
+                            <label for="use-recycle">Recycle:</label>
+                            <input type="checkbox" name="use-recycle" id="use-recycle">
+                            <br>
+                            <label class="recycle-input" for="recycle-ratio-input">Recycle ratio (&alpha;)</label>
+                            <input class="recycle-input" type="number" name="recycle-ratio-input" id="recycle-ratio-input">
+                            <label class="recycle-input" for="concentration-factor-input">Conc. factor (C)</label>
+                            <input class="recycle-input" type="number" name="concentration-factor-input" id="concentration-factor-input">
+
+                        </div>
+                        <div class="col col-md-4">
+                            <p id="optimal-D">Optimal D: </p>
+                        </div>
+                        <div class="col col-md-4">
+                            <p id="hover-info"></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h2>Plot options</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer" class="darker-background">
+        <div class="container-fluid"></div>
+
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
+    </script>
+
+    <!-- Chart.js CDN - REDUNDANT!!!-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- custom JS -->
+    <script src="js/chemostat.js"></script>
+</body>
+
+</html>

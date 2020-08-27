@@ -1,0 +1,70 @@
+body {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+/* Sections */
+
+.darker-background {
+    background-color: #028A5D;
+    color: #6DEAC1;
+}
+
+.darker-background .navbar-item {
+    color: #6DEAC1;
+}
+
+.lighter-background {
+    background-color: #6DEAC1;
+    color: #028A5D;
+}
+
+.lighter-background .nav-link {
+    color: #028A5D;
+}
+
+.lighter-background .nav-link.active {
+    background-color: #7ddabb;
+}
+
+
+/* Containers */
+
+.container-fluid {
+    padding: 1% 5%;
+}
+
+.plot-div {
+    margin-top: 1%;
+    background-color: #fff;
+    height: 600px;
+}
+
+
+/* Navbar */
+
+.navbar {}
+
+.navbar-item {
+    padding-right: 1.5rem;
+}
+
+
+/* Inputs */
+
+.input-div {
+    text-align: center;
+}
+
+
+/* Recycle inputs */
+
+.recycle-input {
+    visibility: hidden;
+}
+
+input.recycle-input {
+    float: right;
+    margin-right: 10%;
+}
