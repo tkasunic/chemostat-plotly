@@ -41,6 +41,9 @@ body {
     height: 600px;
 }
 
+.tab-pane {
+    padding: 1%;
+}
 
 /* Navbar */
 

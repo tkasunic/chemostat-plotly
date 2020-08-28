@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 
-    <title>Bioprocess</title>
+    <title>Chemostat</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <section id="navbar" class="darker-background">
+    <!-- Navbar - Redundant-->
+    <!-- <section id="navbar" class="darker-background">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
                 <a class="nav-item navbar-item" href="">Try it</a>
@@ -26,7 +27,7 @@
                 <a class="nav-item navbar-item" href="">Me two!</a>
             </nav>
         </div>
-    </section>
+    </section> -->
 
     <!-- Graph canvases in tabs -->
     <section id="tab-nav" class="lighter-background">
@@ -38,10 +39,16 @@
         <div id="canvas-tabs" class="container-fluid">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chemostat</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Chemostat</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Help</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Help</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
+                        aria-selected="false">About</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -54,7 +61,8 @@
 
                         <div class="col col-lg-3 col-md-6 input-div">
                             <label for="const-saturation-input">Saturation constant</label>
-                            <input id="const-saturation-input" type="number" name="const-saturation-input" placeholder="kg/m^3">
+                            <input id="const-saturation-input" type="number" name="const-saturation-input"
+                                placeholder="kg/m^3">
                         </div>
 
                         <div class="col col-lg-3 col-md-6 input-div">
@@ -64,7 +72,8 @@
 
                         <div class="col col-lg-3 col-md-6 input-div">
                             <label for="biomass-yield-input">Biomass yield</label>
-                            <input id="biomass-yield-input" type="number" name="biomass-yield-input" placeholder="kg/kg">
+                            <input id="biomass-yield-input" type="number" name="biomass-yield-input"
+                                placeholder="kg/kg">
                         </div>
 
                     </div>
@@ -75,9 +84,11 @@
                             <input type="checkbox" name="use-recycle" id="use-recycle">
                             <br>
                             <label class="recycle-input" for="recycle-ratio-input">Recycle ratio (&alpha;)</label>
-                            <input class="recycle-input" type="number" name="recycle-ratio-input" id="recycle-ratio-input">
+                            <input class="recycle-input" type="number" name="recycle-ratio-input"
+                                id="recycle-ratio-input">
                             <label class="recycle-input" for="concentration-factor-input">Conc. factor (C)</label>
-                            <input class="recycle-input" type="number" name="concentration-factor-input" id="concentration-factor-input">
+                            <input class="recycle-input" type="number" name="concentration-factor-input"
+                                id="concentration-factor-input">
 
                         </div>
                         <div class="col col-md-4">
@@ -90,7 +101,51 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h2>Plot options</h2>
+                    <h3>Plot parameters</h3>
+                    <ul>
+                        <li><strong>&#956<sub>max</sub>:</strong> The Maximum Specific Growth Rate
+                            <em>[h<sup>-1</sup>]</em></li>
+                        <li><strong>Saturation constant (K<sub>S</sub>):</strong> The concentration of substrate at
+                            which
+                            &#956 is exactly half of &#956 max (&#956 / &#956<sub>max</sub> = 0.5) <em>[kg /
+                                m<sup>3</sup>]</em>
+                        </li>
+                        <li><strong>Substrate inflow (S<sub>0</sub>):</strong> The concentration of substrate in the
+                            inflowing medium <em>[kg / m<sup>3</sup>]</em></li>
+                        <li><strong>Biomass yield (Y<sub>X/S</sub>):</strong> The ratio of the produced biomass to the
+                            amount of consumed substrate <em>[kg biomass / kg substrate]</em></li>
+                    </ul>
+                    <h3>Recycle parameters</h3>
+                    <ul>
+                        <li><strong>Recycle ratio (&alpha;):</strong> The portion of the outflow which is being
+                            recirculated</li>
+                        <li><strong>Concentration factor (C):</strong> The factor by which the cells in the recirculated
+                            broth are concentrated</li>
+                    </ul>
+                </div>
+                <div class="tab-pane show" id="about" role="tabpanel" aria-labelledby="about-tab">
+                    <h3>What is this?</h3>
+                    <p>This is a plot-based simulation of a chemostat. It was made with the intent of teaching and
+                        visualizing the impact of bioprocess parameters on the bioprocess itself.</p>
+                    <h3>What is a chemostat?</h3>
+                    <p>A chemostat is a type of a continuous bioprocess. The name itself implies that the chemical
+                        environment in the bioreactor does not change, nor does the volume. This is achieved by
+                        simultaneuosly pumping
+                        fresh medium into the reactor and pumping used medium (including cells) out of the reactor. The
+                        inflow and outflow rates are the same (F<sub>in</sub>=F<sub>out</sub>=F). By dividing F by the
+                        volume of the broth, we can calculate the <em>dilution rate</em> (D). By setting a static D, a
+                        steady state process can be achieved. However, if the D is set too high (above what is known as
+                        <em>critical D</em>, the cells get washed out of the reactor. Many times, to increase cell
+                        concentration in the reactor and to improve
+                        productivity, the outflowing cells are concentrated and reintroduced into the process. This is
+                        reffered to as <em>recycling</em>.</p>
+                    <h3>How was this made?</h3>
+                    <p>The simulation plot was made using plotly.js, a javascript library for charting and plotting
+                        various types of data. All of the calculations are <em>array-based</em>. This means that the
+                        plotted data is not really continuous but is rather a collection of dense points. This is the
+                        reason for sparcity of data in some areas of the graph. The code for this project is accessible
+                        on <a href="https://github.com/tkasunic/chemostat-plotly">my github</a>.</p>
+
                 </div>
             </div>
         </div>
@@ -98,20 +153,22 @@
 
     <!-- Footer -->
     <section id="footer" class="darker-background">
-        <div class="container-fluid"></div>
+        <div class="container-fluid">
+
+        </div>
 
     </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
-    </script>
-
-    <!-- Chart.js CDN - REDUNDANT!!!-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
+        </script>
 
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
