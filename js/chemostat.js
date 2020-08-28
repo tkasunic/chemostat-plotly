@@ -86,7 +86,7 @@ function ChemostatData(muMax, constantOfSaturation, substrateInflowContentration
 
     // Recycle
     if (useRecycle) {
-        this.recycleParameters = calculaterecycleParameters();
+        this.recycleParameters = calculateRecycleParameters();
     }
 
     // Calculate via declared functions
@@ -102,7 +102,7 @@ function ChemostatData(muMax, constantOfSaturation, substrateInflowContentration
 
 function makedilutionRateArray(muMax, numOfPoints) {
     // Get x axis maximum from muMax
-    var xAxisMax = Math.floor(muMax) + 1;
+    var xAxisMax = Math.floor(muMax) + 1.5;
 
     // Initialise x axis with dilutionRateArray
     var dilutionRateArray = []; // Init as empty array
@@ -244,7 +244,7 @@ function makeProductivityArray(muMax, dilutionRateArray, substrateInflowContentr
 }
 
 // Calculate recycle k (for productivity and for S&X) SOURCE: http://ocw.snu.ac.kr/sites/default/files/NOTE/5599.pdf
-function calculaterecycleParameters() {
+function calculateRecycleParameters() {
     // Get inputs
     let recycleRatio = document.getElementById("recycle-ratio-input").value;
     let concentrationFactor = document.getElementById("concentration-factor-input").value;
@@ -365,7 +365,7 @@ function showCoordinates() {
 
     // Make array to store axis coordinates for later display
 
-    plotDiv.addEventListener("mousemove", function(evt) {
+    plotDiv.addEventListener("mousemove", function (evt) {
 
         var xAxisCoord = xAxis.p2c(evt.offsetX - l);
         var yAxis1Coord = yAxis1.p2c(evt.offsetY - t);
@@ -384,12 +384,12 @@ function showCoordinates() {
         }
     });
 
-    plotDiv.addEventListener("mouseout", function(evt) {
+    plotDiv.addEventListener("mouseout", function (evt) {
         hoverInfo.text("D: | X: | S: | QX: ");
     });
 }
 
-document.addEventListener("resize", function(evt) {
+document.addEventListener("resize", function (evt) {
     // remove both event listeners for plotDiv - with jQuery
     $("#chemostat-plot-div").off("mousemove mouseout");
 
@@ -397,7 +397,7 @@ document.addEventListener("resize", function(evt) {
     showCoordinates();
 });
 
-document.addEventListener("input", function(evt) {
+document.addEventListener("input", function (evt) {
     // remove both event listeners for plotDiv - with jQuery
     $("#chemostat-plot-div").off("mousemove mouseout");
 
