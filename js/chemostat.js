@@ -95,8 +95,7 @@ function ChemostatData(muMax, constantOfSaturation, substrateInflowContentration
     this.biomassArray = makeBiomassArray(this.muMax, this.dilutionRateArray, this.biomassYield, this.constantOfSaturation, this.substrateInflowContentration, this.useRecycle, this.recycleParameters);
     this.productivityArray = makeProductivityArray(this.muMax, this.dilutionRateArray, this.substrateInflowContentration, this.constantOfSaturation, this.biomassYield, this.useRecycle, this.recycleParameters);
 
-    this.optimalDilutionRate = this.muMax * (1 - Math.sqrt(this.constantOfSaturation / (this.constantOfSaturation + this.substrateInflowContentration)));
-
+    this.optimalDilutionRate = this.dilutionRateArray[this.productivityArray.indexOf(Math.max(...this.productivityArray))];
 
 }
 
@@ -185,7 +184,6 @@ function makeBiomassArray(
 
             if (x <= 0) {
                 biomassArray.fill(0, indexOfD);
-                console.log("Rere");
                 break;
             }
             biomassArray[indexOfD] = x;
@@ -199,7 +197,6 @@ function makeBiomassArray(
 
             if (x <= 0) {
                 biomassArray.fill(0, indexOfD);
-                console.log(indexOfD);
                 break;
             }
             biomassArray[indexOfD] = x;
@@ -345,7 +342,7 @@ function showOpimalD() {
 
     // Display most productive dilution rate
     optimalDRate = calculatedData.optimalDilutionRate;
-    optimalD.append(optimalDRate.toFixed(DECIMAL_PLACES));
+    optimalD.append(optimalDRate);
 }
 
 // Hover/mouse position tracking functionality to show and both y coordinates
@@ -443,7 +440,6 @@ document.addEventListener("input", function (evt) {
 
 
     plotData(plotDiv, calculatedData);
-    // console.log(muMaxInput);
 });
 
 // #################################################
